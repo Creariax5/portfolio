@@ -1,4 +1,4 @@
-// PokemonDetail.js
+import Image from 'next/image';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { TypeBadge } from './types';
@@ -23,11 +23,16 @@ export const PokemonDetail = ({ pokemon, onPrevious, onNext, hasPrevious, hasNex
     </CardHeader>
     <CardContent>
       <div className="flex flex-col items-center mb-6">
-        <img
-          src={pokemon.image}
-          alt={pokemon.name}
-          className="w-48 h-48 mb-4"
-        />
+        <div className="relative w-48 h-48 mb-4">
+          <Image
+            src={pokemon.image}
+            alt={pokemon.name}
+            fill
+            sizes="(max-width: 768px) 192px, 192px"
+            priority
+            className="object-contain"
+          />
+        </div>
         <div className="flex gap-2 mb-4">
           {pokemon.types.map((type) => (
             <TypeBadge key={type} type={type} />

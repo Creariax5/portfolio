@@ -73,7 +73,6 @@ export async function fetchMonthlyWeather(latitude, longitude) {
 
 export async function fetchYearlyWeather() {
   // Since the API doesn't provide yearly data, we'll use static seasonal data
-  const baseTemp = 15;
   return [
     { month: 'Jan', base: 5 },
     { month: 'Fév', base: 7 },

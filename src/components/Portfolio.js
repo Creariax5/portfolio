@@ -66,7 +66,7 @@ const Portfolio = () => {
       {/* Header */}
       <div className="max-w-3xl mx-auto text-center mb-16">
         <h1 className="text-6xl font-bold mb-4 font-sans">FLO.DEV</h1>
-        <p className="text-xl text-gray-600 font-mono">let's build something fun</p>
+        <p className="text-xl text-gray-600 font-mono">let&apos;s build something fun</p>
       </div>
 
       {/* Project Cards */}

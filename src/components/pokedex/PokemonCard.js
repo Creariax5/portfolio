@@ -1,4 +1,4 @@
-// PokemonCard.js
+import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { TypeBadge } from './types';
 
@@ -10,11 +10,16 @@ export const PokemonCard = ({ pokemon, isSelected, onClick }) => (
     onClick={onClick}
   >
     <CardContent className="p-4">
-      <img
-        src={pokemon.image}
-        alt={pokemon.name}
-        className="w-full h-auto mb-2"
-      />
+      <div className="relative w-full aspect-square mb-2">
+        <Image
+          src={pokemon.image}
+          alt={pokemon.name}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={pokemon.id <= 12}
+          className="object-contain"
+        />
+      </div>
       <div className="text-center">
         <div className="font-bold">#{pokemon.id.toString().padStart(3, '0')}</div>
         <div className="text-lg">{pokemon.name}</div>
