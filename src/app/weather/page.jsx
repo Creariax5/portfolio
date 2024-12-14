@@ -1,5 +1,5 @@
-import WeatherApp from '@/components/weather/WeatherApp'
+import WeatherDashboard from '@/components/weather/WeatherDashboard'
 
 export default function WeatherPage() {
-  return <WeatherApp />
+  return <WeatherDashboard />
 }
