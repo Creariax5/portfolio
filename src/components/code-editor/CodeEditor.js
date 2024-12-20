@@ -12,6 +12,7 @@ import { OBJECT_TEMPLATE } from './lib/defaultTemplates';
 
 export const CodeCanvasEditor = () => {
     const [activeTab, setActiveTab] = useState('');
+    const [firstCodes, setFirstCodes] = useState({});
     const [codes, setCodes] = useState({});
     const [debugInfo, setDebugInfo] = useState('');
     const [isPlaying, setIsPlaying] = useState(false);
@@ -24,6 +25,7 @@ export const CodeCanvasEditor = () => {
     const { handleCodeChange, handleSave, deleteObject } = useCodeManagement(
         codes,
         setCodes,
+        firstCodes,
         activeTab,
         setActiveTab,
         setDebugInfo
@@ -31,7 +33,7 @@ export const CodeCanvasEditor = () => {
 
     const { executeFrame, resetAnimation } = useGameObjects(codes, setDebugInfo, setIsPlaying);
 
-    useInitialLoad(setCodes, setActiveTab, setDebugInfo);
+    useInitialLoad(setCodes, setFirstCodes, setActiveTab, setDebugInfo);
 
     // Create a wrapper for code changes that preserves content
     const handleEditorCodeChange = (newCode) => {
@@ -43,6 +45,7 @@ export const CodeCanvasEditor = () => {
     // Use CodeMirror editor hook
     const editorRef = useCodeEditor(
         editorContainerRef.current,
+        firstCodes,
         codes[activeTab] || '',
         handleEditorCodeChange,
         handleSave
