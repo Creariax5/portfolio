@@ -6,8 +6,18 @@ import { oneDark } from '@codemirror/theme-one-dark';
 import { keymap } from '@codemirror/view';
 import { defaultKeymap, indentWithTab } from '@codemirror/commands';
 
-export const useCodeEditor = (container, initialCode, onChange, onSave) => {
+export const useCodeEditor = (container, firstCodes, initialCode, onChange, onSave) => {
     const editorRef = useRef(null);
+
+    useEffect(() => {
+        console.log("container");
+    }, [container]);
+    useEffect(() => {
+        console.log("firstCodes");
+    }, [firstCodes]);
+    useEffect(() => {
+        console.log("onSave");
+    }, [onSave]);
 
     useEffect(() => {
         if (!container) return;
@@ -57,38 +67,8 @@ export const useCodeEditor = (container, initialCode, onChange, onSave) => {
 
         editorRef.current = view;
 
-        // Focus and set cursor position after initialization
-        view.focus();
-        view.dispatch({
-            selection: {
-                anchor: view.state.doc.length
-            }
-        });
-
         return () => view.destroy();
-    }, [container, onChange, onSave]);
-
-    useEffect(() => {
-        const view = editorRef.current;
-        if (!view) return;
-
-        const currentContent = view.state.doc.toString();
-        if (initialCode !== currentContent) {
-            view.dispatch({
-                changes: {
-                    from: 0,
-                    to: view.state.doc.length,
-                    insert: initialCode
-                },
-                // Maintain cursor position at the end after content update
-                selection: {
-                    anchor: initialCode.length
-                }
-            });
-            // Ensure focus is maintained after content update
-            view.focus();
-        }
-    }, [initialCode]);
+    }, [container, firstCodes, onSave]);
 
     return editorRef;
 };

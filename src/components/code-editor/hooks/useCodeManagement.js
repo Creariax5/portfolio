@@ -5,7 +5,8 @@ export const useCodeManagement = (
     setCodes,
     activeTab,
     setActiveTab,
-    setDebugInfo
+    setDebugInfo,
+    setSaveCounter
 ) => {
     // Force callback updates when active tab changes
     const [updateCounter, setUpdateCounter] = useState(0);
@@ -23,6 +24,7 @@ export const useCodeManagement = (
 
     // Save code to the server
     const handleSave = useCallback(async () => {
+        console.log("handleSave");
         try {
             await fetch('/games/api/save-code', {
                 method: 'POST',
@@ -39,7 +41,8 @@ export const useCodeManagement = (
         } finally {
             setTimeout(() => setDebugInfo(''), 2000);
         }
-    }, [activeTab, codes, setDebugInfo, updateCounter]);
+        // setSaveCounter(prev => prev + 1);
+    }, [activeTab, codes]);
 
     // Delete an object and switch to the next available tab
     const deleteObject = useCallback(async (objectName) => {
