@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from '../ui/Card.jsx';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { TypeBadge } from './types';
 import { StatBar } from './stats';

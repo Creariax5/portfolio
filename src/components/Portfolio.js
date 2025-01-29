@@ -3,14 +3,14 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Github, ExternalLink, Code, Coffee, Sparkles, Cloud, Gamepad } from 'lucide-react';
+import { Github, ExternalLink, Code, Coffee, Sparkles, Cloud, Gamepad, DollarSign } from 'lucide-react';
 
 const Portfolio = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const router = useRouter();
 
   const projects = [
-    {
+    /* {
       title: "Interactive Data Viz",
       description: "Play with data in real-time",
       icon: <Sparkles className="w-8 h-8" />,
@@ -27,6 +27,24 @@ const Portfolio = () => {
       hoverColor: "bg-purple-200",
       textColor: "text-purple-800",
       link: "/weather"
+    }, */
+    {
+      title: "Crypto Investment",
+      description: "A Website linked on the blockchain, to analyze the crypto market",
+      icon: <DollarSign className="w-8 h-8" />,
+      color: "bg-blue-100",
+      hoverColor: "bg-blue-200",
+      textColor: "text-blue-800",
+      link: "https://crypto-invest-chi.vercel.app/"
+    },
+    {
+      title: "Electronic simulatior",
+      description: "A Website linked on the blockchain, to analyze the crypto market",
+      icon: <Sparkles className="w-8 h-8" />,
+      color: "bg-orange-100",
+      hoverColor: "bg-orange-200",
+      textColor: "text-orange-800",
+      link: "https://electronic-simulator.vercel.app/"
     },
     {
       title: "Pokédex App",
@@ -37,7 +55,7 @@ const Portfolio = () => {
       textColor: "text-red-800",
       link: "/pokedex"
     },
-    {
+    /* {
       title: "AI Playground",
       description: "Experiment with machine learning",
       icon: <Coffee className="w-8 h-8" />,
@@ -45,7 +63,7 @@ const Portfolio = () => {
       hoverColor: "bg-blue-200",
       textColor: "text-blue-800",
       link: "/ai"
-    },
+    }, */
     {
       title: "Code Games",
       description: "Learn coding through play",
@@ -111,20 +129,20 @@ const Portfolio = () => {
       <div className="max-w-4xl mx-auto mt-16 p-8 bg-white rounded-xl shadow-sm">
         <div className="grid grid-cols-3 gap-8 text-center">
           <div className="space-y-2">
-            <div className="text-4xl font-bold text-blue-600 animate-pulse font-mono">
-              42k
+            <div className="text-4xl font-bold text-blue-600 font-mono">
+              ~{(1936*36/1000).toFixed(0)}k
             </div>
             <div className="text-gray-600">Lines of Code</div>
           </div>
           <div className="space-y-2">
-            <div className="text-4xl font-bold text-green-600 animate-pulse font-mono">
-              128
+            <div className="text-4xl font-bold text-green-600 font-mono">
+              639
             </div>
             <div className="text-gray-600">Github Commits</div>
           </div>
           <div className="space-y-2">
-            <div className="text-4xl font-bold text-purple-600 animate-pulse font-mono">
-              15
+            <div className="text-4xl font-bold text-purple-600 font-mono">
+              36
             </div>
             <div className="text-gray-600">Projects Launched</div>
           </div>
@@ -133,7 +151,7 @@ const Portfolio = () => {
 
       {/* Skills Section */}
       <div className="max-w-4xl mx-auto mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-        {['JavaScript', 'React', 'Node.js', 'Python'].map((skill, index) => (
+        {['Python', 'Java', 'C++', 'React'].map((skill, index) => (
           <div
             key={index}
             className="bg-white p-4 rounded-xl text-center transform transition-all duration-300 hover:scale-105 cursor-pointer font-mono"

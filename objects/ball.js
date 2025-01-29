@@ -6,7 +6,7 @@ if (!window.ball) {
     radius: 20,
     dx: 6,
     dy: -4,
-    color: '#ff0000'
+    color: '#fff000'
   };
 }
 

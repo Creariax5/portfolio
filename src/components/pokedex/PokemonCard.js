@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '../ui/Card.jsx';
 import { TypeBadge } from './types';
 
 export const PokemonCard = ({ pokemon, isSelected, onClick }) => (
