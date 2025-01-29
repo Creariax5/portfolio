@@ -82,4 +82,4 @@ const CardContent = ({ children, className = '', ...props }) => {
   );
 };
 
-export { Card, CardHeader, CardTitle, CardContent, ExampleCard };
+export { Card, CardHeader, CardTitle, CardContent };
